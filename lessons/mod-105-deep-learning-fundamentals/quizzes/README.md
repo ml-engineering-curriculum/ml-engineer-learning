@@ -1,3 +1,5 @@
-# Deep Learning Fundamentals with PyTorch quizzes
+# Quizzes for mod-105-deep-learning-fundamentals (Deep Learning Fundamentals with PyTorch)
 
-Authored under the autonomous fill-in loop.
+| # | Quiz | Covers |
+|---|---|---|
+| 01 | [Deep Learning Fundamentals with PyTorch](quiz-01-deep-learning-fundamentals.md) | chapters 01–10 |
