@@ -216,9 +216,9 @@ TimeSeriesSplit` on a global sort works if entities are
 independent; otherwise chapter 08's `GroupKFold` combined
 with a per-group time cutoff is the pattern.
 
-<!-- needs-research: check if scikit-learn has added a
-GroupTimeSeriesSplit primitive. Otherwise cite mlxtend /
-sktime implementations. -->
+As of scikit-learn 1.9, no native `GroupTimeSeriesSplit`
+ships; [`mlxtend.evaluate.GroupTimeSeriesSplit`](https://rasbt.github.io/mlxtend/user_guide/evaluate/GroupTimeSeriesSplit/)
+is the standard scikit-learn-compatible implementation.
 
 ## Recursive vs direct forecasting evaluation
 

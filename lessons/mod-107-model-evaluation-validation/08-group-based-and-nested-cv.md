@@ -137,13 +137,10 @@ determine the split:
 Both together requires a per-group time split — for each
 group, hold out a contiguous late-in-time window, and
 combine across groups. Scikit-learn does not currently
-ship a first-class `GroupTimeSeriesSplit`; the pattern is
-straightforward to implement, or use `sktime` for a
-production implementation.
-
-<!-- needs-research: check if a group-aware TimeSeriesSplit
-exists in scikit-learn 1.5+, and if not, cite sktime's
-GroupTimeSeriesSplit as the standard implementation. -->
+ship a first-class `GroupTimeSeriesSplit` (as of 1.9); the
+pattern is straightforward to implement, or use
+[`mlxtend.evaluate.GroupTimeSeriesSplit`](https://rasbt.github.io/mlxtend/user_guide/evaluate/GroupTimeSeriesSplit/)
+for a scikit-learn-compatible implementation.
 
 ## Nested cross-validation: the problem
 
@@ -320,14 +317,11 @@ nested_scores = cross_val_score(
 Passing `groups` to the inner search requires either the
 `fit_params` bridge shown or a wrapper that intercepts
 `groups` — the API is not as clean as one would hope.
-[`sklearn.model_selection.HalvingGridSearchCV`](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.HalvingGridSearchCV.html)
-and third-party libraries like `scikit-optimize` sometimes
-handle this more cleanly; verify before shipping.
-
-<!-- needs-research: verify current scikit-learn API for
-passing `groups` from an outer `cross_val_score` to an
-inner `GridSearchCV.cv=GroupKFold(...)` cleanly. As of
-sklearn 1.4 this required `fit_params`; check 1.5+. -->
+Scikit-learn's [metadata routing](https://scikit-learn.org/stable/metadata_routing.html)
+API (opt-in via `sklearn.set_config(enable_metadata_routing=True)`,
+available since 1.4) lets you pass `params={"groups": groups}`
+instead of `fit_params`, which routes cleanly through
+`GridSearchCV` to inner splitters like `GroupKFold`.
 
 ## A minimum-viable pattern
 

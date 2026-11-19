@@ -124,10 +124,11 @@ tabular problems for most reasonable dataset sizes, and
 "we tried a neural net and it beat XGBoost by 0.2%" is a
 famously hard claim to defend.
 
-<!-- needs-research: cite Grinsztajn, Oyallon, Varoquaux
-(2022) "Why do tree-based models still outperform deep
-learning on tabular data?" for the tree-vs-DL tabular
-benchmark. -->
+See Grinsztajn, Oyallon & Varoquaux (2022),
+[*Why do tree-based models still outperform deep learning
+on typical tabular data?*](https://arxiv.org/abs/2207.08815)
+(NeurIPS 2022), for the tree-vs-DL tabular benchmark and
+an analysis of why the gap persists.
 
 On non-tabular data (images, text, audio), the strong
 baseline is a **pre-trained model with a linear head**
@@ -206,8 +207,11 @@ Compute inter-annotator agreement on the tasks that have
 multiple labels per item; use `cohen_kappa_score` or
 `fleiss_kappa` for the standard statistics.
 
-<!-- needs-research: cite Landis & Koch (1977) or a modern
-IR/NLP reference for kappa interpretation ranges. -->
+For the widely-cited (and widely-criticised) interpretation
+bands on kappa — slight, fair, moderate, substantial, almost
+perfect — see Landis & Koch (1977), [*The Measurement of
+Observer Agreement for Categorical Data*](https://doi.org/10.2307/2529310)
+(*Biometrics* 33:159–174).
 
 ## Baselines within the training loop
 

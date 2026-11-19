@@ -172,8 +172,9 @@ $\text{DCG@}k = \sum_{i=1}^{k} \frac{\text{rel}_i}{\log_2(i + 1)}$
 
 (Two conventions exist for the numerator: `rel_i` directly,
 or `2^{rel_i} - 1`. The latter emphasises the top
-relevance grades and is the default in most modern
-implementations, including `sklearn.metrics.ndcg_score`.)
+relevance grades and is common in the IR learning-to-rank
+literature; `sklearn.metrics.ndcg_score` uses the linear
+`rel_i` convention.)
 
 The log-discount is what makes nDCG feel right: position
 1 contributes with weight 1, position 5 with weight
@@ -205,13 +206,10 @@ Range $[0, 1]$; 1 means the ranking is perfect.
 - Very short lists where the log discount barely
   differentiates positions.
 
-Scikit-learn ships `ndcg_score(y_true, y_score, k=None)`;
-its default numerator convention and how it handles
-missing / negative relevance is worth checking.
-
-<!-- needs-research: verify sklearn.metrics.ndcg_score
-numerator convention (`gain_function="exponential"` /
-default) and behaviour with negative relevance grades. -->
+Scikit-learn ships [`ndcg_score(y_true, y_score, k=None)`](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.ndcg_score.html)
+with a linear `rel_i` numerator and no `gain_function`
+toggle; negative `y_true` values are accepted but may
+produce scores outside `[0, 1]`.
 
 ## A worked example
 
@@ -324,9 +322,11 @@ Address with pooled evaluation (union of candidates from
 multiple systems is judged) or off-policy evaluation
 techniques beyond level 20.
 
-<!-- needs-research: cite TREC pooling methodology (Harman,
-1995) as the standard way of handling unlabelled items in
-retrieval evaluation. -->
+The pooled-evaluation protocol is documented in Harman
+(1995), [*Overview of the Third Text REtrieval Conference
+(TREC-3)*](https://trec.nist.gov/pubs/trec3/papers/overview.pdf) —
+the top-$k$ results from each submitted system are unioned
+and judged, and unjudged items are treated as non-relevant.
 
 ## Common pitfalls
 

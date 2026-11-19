@@ -83,15 +83,12 @@ each subgroup and report the largest gap.
   slice-by-recall / slice-by-FPR pair.
 
 Both definitions have their critics. **Barocas, Hardt &
-Narayanan (2019)** show they cannot in general be
-satisfied simultaneously — a well-known impossibility
-result. The choice between them is a value choice, not a
-technical one; document which you are reporting and
-why.
-
-<!-- needs-research: cite Barocas, Hardt & Narayanan,
-"Fairness and Machine Learning" for the incompatibility
-result and the vocabulary of fairness definitions. -->
+Narayanan**, [*Fairness and Machine Learning*](https://fairmlbook.org/)
+(MIT Press 2023), show that any two of independence,
+separation, and sufficiency cannot in general be satisfied
+simultaneously — a well-known impossibility result. The
+choice between them is a value choice, not a technical one;
+document which you are reporting and why.
 
 **The minimum viable subgroup report:**
 
@@ -139,15 +136,12 @@ Read the output for three things:
   true positive rate between the most- and least-
   favoured group.
 
-Both are supported by fairness libraries like `fairlearn`
-and `aif360`. Level 20 does not require a full library
-dependency; report the primary metric per group and the
-gaps.
-
-<!-- needs-research: verify fairlearn's canonical metric
-names (statistical_parity_difference,
-equal_opportunity_difference) match those in the current
-Microsoft docs. -->
+Both are supported by fairness libraries — fairlearn
+exposes them as [`demographic_parity_difference`](https://fairlearn.org/main/api_reference/generated/fairlearn.metrics.demographic_parity_difference.html)
+and `equal_opportunity_difference`; `aif360` uses
+`statistical_parity_difference`. Level 20 does not require
+a full library dependency; report the primary metric per
+group and the gaps.
 
 ## Perturbation robustness — the "does it hold under small changes?" slice
 
@@ -243,9 +237,9 @@ Chapter `mod-109` (monitoring) uses these as drift
 signals in production; here they are context for the
 metric report.
 
-<!-- needs-research: cite the original PSI reference
-(Kotze / SAS credit modelling literature); the 0.25
-threshold is a widely-cited rule of thumb. -->
+The < 0.1 / 0.1–0.25 / > 0.25 PSI bands trace back to
+Siddiqi, *Credit Risk Scorecards* (Wiley, 2005), and are
+reproduced across the credit-scoring literature.
 
 ## When one number is not enough — reporting a slice table
 

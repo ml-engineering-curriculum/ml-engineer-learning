@@ -128,11 +128,9 @@ Two caveats worth carrying:
   both.
 
 Scikit-learn does not currently ship an `expected_calibration_error`
-function; compute it from `calibration_curve` outputs, or
-use `torchmetrics.classification.CalibrationError`.
-
-<!-- needs-research: verify whether sklearn ≥ 1.6 has added
-a first-class ECE implementation. -->
+function (as of 1.9; see [`sklearn.calibration`](https://scikit-learn.org/stable/api/sklearn.calibration.html));
+compute it from `calibration_curve` outputs, or use
+`torchmetrics.classification.CalibrationError`.
 
 ## Brier score
 
@@ -281,10 +279,9 @@ seen it.
 
 Temperature scaling is not in scikit-learn; a common
 implementation is ~30 lines with `scipy.optimize`, or use
-`torchmetrics` / `netcal`.
-
-<!-- needs-research: `netcal` calibration library — check
-current status and recommended methods list. -->
+`torchmetrics` / [`netcal`](https://efs-opensource.github.io/calibration-framework/)
+(temperature scaling, beta / logistic calibration, histogram
+binning, and ECE / MCE / ACE metrics).
 
 ## When calibration is (and isn't) worth doing
 

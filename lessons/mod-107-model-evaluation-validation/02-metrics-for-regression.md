@@ -174,9 +174,9 @@ seasonal forecast rather than against $y$ directly. If your
 target has zeros or near-zeros, MAPE is the wrong metric —
 report MAE alongside it or switch to MASE.
 
-<!-- needs-research: cite Hyndman & Koehler (2006) "Another
-look at measures of forecast accuracy" for the MASE
-definition and the critique of MAPE. -->
+See Hyndman & Koehler (2006), [*Another look at measures of
+forecast accuracy*](https://doi.org/10.1016/j.ijforecast.2006.03.001),
+for the MASE definition and the critique of MAPE.
 
 ## When the target is skewed — log-space metrics and quantile loss
 

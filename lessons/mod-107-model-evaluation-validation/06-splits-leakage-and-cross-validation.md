@@ -285,14 +285,11 @@ better?"), the naive comparison of fold means often
 overstates significance. The correct test is a **paired**
 one (each fold's score for A minus B), and even that is
 biased on standard CV because folds share training data.
-Nadeau & Bengio (2003) proposed a **corrected resampled
-$t$-test** for this case; scikit-learn's documentation on
-model evaluation cites it explicitly.
-
-<!-- needs-research: cite Nadeau & Bengio (2003)
-"Inference for the Generalization Error" and the sklearn
-docs page on statistical model comparison for the
-corrected resampled t-test formulation. -->
+Nadeau & Bengio ([2003](https://doi.org/10.1023/A:1024068626366))
+proposed a **corrected resampled $t$-test** for this case;
+scikit-learn's docs example on [statistical comparison of
+models](https://scikit-learn.org/stable/auto_examples/model_selection/plot_grid_search_stats.html)
+cites it explicitly and gives the implementation.
 
 ## When simple CV is wrong
 

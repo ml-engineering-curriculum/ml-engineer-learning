@@ -264,10 +264,10 @@ Two implementations to know:
   trapezoidal rule and is not recommended for PR curves
   (see the scikit-learn documentation for the reason).
 
-<!-- needs-research: cite Davis & Goadrich (2006) "The
-Relationship Between Precision-Recall and ROC Curves" for
-the canonical discussion of when PR is more informative
-than ROC. -->
+See Davis & Goadrich (2006), [*The Relationship Between
+Precision-Recall and ROC Curves*](https://doi.org/10.1145/1143844.1143874),
+for the canonical discussion of when PR is more informative
+than ROC on class-imbalanced tasks.
 
 ## Multi-class metrics — a compressed tour
 

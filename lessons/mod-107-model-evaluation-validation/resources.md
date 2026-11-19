@@ -206,14 +206,12 @@ becomes lookup.
   proposes debiased alternatives. Worth reading before
   quoting ECE as the sole calibration metric.
 - **`netcal` — calibration library.**
-  <https://fabiankueppers.github.io/calibration-framework/>
-  Third-party library covering temperature scaling, beta
-  calibration, and more sophisticated recalibrators than
-  scikit-learn ships. Chapter 04 references it as the
-  next step past `CalibratedClassifierCV`.
-  <!-- needs-research: verify the current maintained
-  location of the `netcal` docs — the framework has
-  moved hosts before. -->
+  <https://efs-opensource.github.io/calibration-framework/>
+  Third-party library (maintained by EFS-OpenSource)
+  covering temperature scaling, beta / logistic
+  calibration, histogram binning, and ECE / MCE / ACE
+  metrics. Chapter 04 references it as the next step past
+  `CalibratedClassifierCV`.
 
 ## Chapter 05 — Metrics for ranking
 
@@ -240,13 +238,12 @@ becomes lookup.
 - **Voorhees, Ellen M., and Donna K. Harman. *TREC:
   Experiment and Evaluation in Information Retrieval*
   (MIT Press, 2005).**
+  <https://mitpress.mit.edu/books/trec>
   The reference for pooled-relevance judgements and
   the evaluation methodology behind the TREC family of
   benchmarks. Cited as the source for chapter 05's
   "you never have all the judgements you would like"
   point.
-  <!-- needs-research: no free canonical URL for the
-  book; link to the MIT Press page if verified. -->
 - **Craswell, Nick. "Mean Reciprocal Rank" (in
   *Encyclopedia of Database Systems*, Springer,
   2009).**
@@ -381,11 +378,14 @@ becomes lookup.
   Over-fitting in Model Selection…" (JMLR, 2010).**
   <https://www.jmlr.org/papers/v11/cawley10a.html>
   Duplicate reference; the other primary source.
-- **sktime — `GroupTimeSeriesSplit`.**
-  <https://www.sktime.net/en/stable/api_reference/auto_generated/sktime.split.SingleWindowSplitter.html>
-  <!-- needs-research: verify sktime's exact export name
-  for a group-aware time-series splitter, and update
-  the URL when the API stabilises. -->
+- **mlxtend — `GroupTimeSeriesSplit`.**
+  <https://rasbt.github.io/mlxtend/user_guide/evaluate/GroupTimeSeriesSplit/>
+  The scikit-learn-compatible group-aware time-series
+  splitter chapters 07 and 08 reference. sktime's
+  [`split`](https://www.sktime.net/en/stable/api_reference/split.html)
+  module ships expanding/sliding-window and instance
+  splitters but no single `GroupTimeSeriesSplit` export
+  as of this writing.
 
 ## Chapter 09 — Baselines that tell you something
 
@@ -599,13 +599,9 @@ becomes lookup.
   Scoring* (Wiley, 2005).**
   The credit-scoring textbook where the PSI ranges
   chapter 11 quotes (< 0.1 stable; 0.1–0.25 small
-  shift; > 0.25 large shift) originate.
-  <!-- needs-research: the "> 0.25 is a large shift"
-  cutoff is widely reproduced but the original
-  citation is diffuse across the credit-modelling
-  literature; verify against Siddiqi's chapter on
-  characteristic analysis before pinning the number
-  to a single source. -->
+  shift; > 0.25 large shift) are codified; the bands
+  are widely reproduced across subsequent credit-
+  modelling literature.
 - **Yurdakul, Bilal. "Statistical Properties of
   Population Stability Index" (Ph.D. dissertation,
   Western Michigan University, 2018).**
@@ -627,13 +623,13 @@ becomes lookup.
   machine learning.**
   <https://www.iso.org/standard/81088.html>
   The ISO umbrella standard for ML data quality.
-  Chapter 06's leakage taxonomy and chapter 11's
-  distribution-shift probes are the evaluation-side
-  operationalisation of parts of this standard.
-  <!-- needs-research: ISO 5259 is a multi-part
-  standard whose parts publish on different
-  schedules; verify which parts are current before
-  citing them individually. -->
+  Parts 1–5 published 2024–2025 (concepts, measures,
+  management, process framework, governance); Part 6
+  (visualisation) was released as a Technical Report
+  in May 2026. Chapter 06's leakage taxonomy and
+  chapter 11's distribution-shift probes are the
+  evaluation-side operationalisation of parts of this
+  standard.
 - **EU AI Act (Regulation (EU) 2024/1689).**
   <https://eur-lex.europa.eu/eli/reg/2024/1689/oj>
   The regulation that turns "evaluation is not
@@ -670,16 +666,3 @@ chapter examples and the exercise prompts:
   slices; holding out the latest week gives a
   distribution-shift probe.
 
-<!-- needs-research: on each autonomous research
-cycle, verify these URLs still resolve. In
-particular: (a) scikit-learn docs pages (they
-periodically reorganise between /modules/, /api/,
-and /modules/generated/); (b) sktime API pages
-(the splitter API has renamed exports across
-minor versions); (c) fairlearn docs (moved from
-fairlearn.github.io to fairlearn.org); (d) the
-NYC TLC data landing page (they have restructured
-the download layout at least twice); (e) EU AI Act
-consolidated version (numbered articles may shift
-between the OJ text and later corrigenda). Swap in
-current pages when a doc URL 404s. -->
