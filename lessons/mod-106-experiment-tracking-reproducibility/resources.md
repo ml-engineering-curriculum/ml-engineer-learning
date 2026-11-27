@@ -573,4 +573,15 @@ reuse whatever is in play from `mod-103`, `mod-104`, or
   `CIFAR100`. A good default when the training script comes
   from `mod-105`.
 
-<!-- needs-research: on each autonomous research cycle, verify these URLs still resolve. In particular: (a) MLflow docs pages (they reorganised the URL scheme once; another rename is plausible on a 3.x cut); (b) DVC docs (they periodically shuffle the User Guide vs Command Reference split); (c) Optuna sampler/pruner references (samplers list expands most releases); (d) W&B docs (frequently move under /guides/ subpaths). Swap in current pages when a doc URL 404s. -->
+## A note on link rot
+
+Docs for the tools in this module move. MLflow has reshuffled
+its documentation URL scheme across major releases (e.g.
+`.html` → nested `/ml/…/` paths on the 3.x line), DVC
+periodically re-splits its User Guide vs. Command Reference,
+Optuna's sampler/pruner lists expand per release, and W&B
+documentation at `docs.wandb.ai` currently redirects to a
+successor host (`docs.coreweave.com`) following the CoreWeave
+acquisition. If a link above 404s, search the vendor's current
+docs site for the page name; the content is usually just one
+rename away.

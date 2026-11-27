@@ -302,11 +302,11 @@ The env var `CUBLAS_WORKSPACE_CONFIG=:4096:8` is required for
 some CUDA operations under `use_deterministic_algorithms`
 (cuBLAS-based ops that use workspace memory). Setting it
 unconditionally is harmless; without it, you get a
-`RuntimeError` from cuBLAS on some kernels.
-
-<!-- needs-research: verify the current list of PyTorch ops
-with no deterministic implementation on the latest stable
-release; the list narrows over time. -->
+`RuntimeError` from cuBLAS on some kernels. The authoritative
+list of ops with no deterministic implementation lives in the
+PyTorch `torch.use_deterministic_algorithms` reference
+(`resources.md`); it shifts across releases, so check it
+against the exact PyTorch version you are on.
 
 ## What seeding does *not* control
 

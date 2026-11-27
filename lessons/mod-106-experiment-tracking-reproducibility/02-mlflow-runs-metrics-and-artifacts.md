@@ -245,10 +245,9 @@ set of things logged changes between MLflow versions. For
 serious runs, complement autologging with explicit
 `log_metric` calls for the specific validation numbers you
 actually care about — the ones that will be compared across
-runs and referenced in the report.
-
-<!-- needs-research: verify the current list of MLflow autolog
-integrations and any semantic changes per major version. -->
+runs and referenced in the report. The per-framework list of
+what gets captured lives in the MLflow autologging docs
+(`resources.md`).
 
 ## Logging a metric that changes over time
 
@@ -426,9 +425,6 @@ data get the same hash on the input record. This is a
 lightweight alternative to DVC when the dataset lives at a
 stable URI already. Chapter 06 covers DVC for the case where
 you also need to *version* the underlying bytes.
-
-<!-- needs-research: confirm the mlflow.data API surface and
-`source` metadata fields on the latest stable MLflow release. -->
 
 ## The tracking backend, in one paragraph
 

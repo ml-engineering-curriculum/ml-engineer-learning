@@ -272,10 +272,13 @@ consider **Ray Tune**, **Katib**, or **W&B Sweeps** as
 higher-scale alternatives. Optuna scales well vertically and
 to a small number of nodes; those tools scale further.
 
-<!-- needs-research: on the current Optuna release, verify
-that the MLflowCallback and PyTorchLightning/scikit-learn
-integrations still ship under `optuna.integration.*` or have
-migrated to `optuna-integration`. -->
+Note that `MLflowCallback`, the PyTorch Lightning hook, and
+the scikit-learn `OptunaSearchCV` estimator now ship from the
+separate `optuna-integration` package rather than from
+`optuna.integration` in the core wheel — install
+`optuna-integration` (with the relevant extras) alongside
+`optuna` when you wire a sweep into a tracker. See the
+`optuna-integration` docs listed in `resources.md`.
 
 ## Analysing a completed sweep
 

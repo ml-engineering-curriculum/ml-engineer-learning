@@ -202,13 +202,11 @@ handoff for deployment.
 ### Cost
 
 - **MLflow.** Open source. Self-hosted infrastructure only.
-- **W&B.** Free tier for individuals and open-source
-  projects; per-seat pricing for teams; enterprise pricing
-  for on-prem.
-
-<!-- needs-research: W&B pricing tiers and any changes to the
-free-for-academics / free-for-open-source policies. Confirm
-before recommending in a real engagement. -->
+- **W&B.** Free tier for individual use and typically for
+  academic users; per-seat pricing for teams; enterprise
+  pricing for on-prem. Pricing and eligibility change — check
+  the current W&B pricing and academic pages before quoting
+  numbers in a real engagement.
 
 ## When to pick which
 

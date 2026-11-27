@@ -128,11 +128,10 @@ Two things this buys you:
 
 For a CPU-only run, swap the index to `whl/cpu`. Read the
 current PyTorch install page (`resources.md`) for the exact
-URL — the matrix changes with each release.
-
-<!-- needs-research: verify the current PyTorch install-page
-URL and the recommended `uv sources` syntax on the latest
-stable release; historically the guidance has shifted. -->
+URL — the CUDA-version matrix changes with each release, and
+the uv-side `[tool.uv.index]` / `[tool.uv.sources]` recipe has
+shifted shape at least once; check the uv PyTorch integration
+guide (`resources.md`) before copy-pasting.
 
 ## Recording the environment inside a run
 

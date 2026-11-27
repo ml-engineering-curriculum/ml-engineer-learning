@@ -49,12 +49,11 @@ Between them:
 Historically MLflow also had **stages** (`Staging` /
 `Production` / `Archived`). Aliases are the modern
 replacement — richer, more flexible, and not tied to a fixed
-vocabulary. Both are still supported in current MLflow;
-prefer aliases for new work.
-
-<!-- needs-research: verify the current MLflow guidance on
-stages vs aliases; the API is evolving and stages have been
-labelled legacy in some releases. -->
+vocabulary. Stages were deprecated in the MLflow 2.x line and
+dropped in MLflow 3.x; use aliases for all new work, and plan
+a migration if an older codebase still calls
+`transition_model_version_stage`. See the Model Registry
+workflows guide (`resources.md`) for the current API.
 
 ## Registering a model from a training run
 
@@ -304,10 +303,14 @@ Two patterns for the handoff:
 Either way, the registry's job ends at the alias. Deployment
 is `mod-108`.
 
-<!-- needs-research: MLflow's built-in webhook support has
-historically varied by version and by managed vs OSS. Verify
-what ships in the current stable release; document any
-fallback (e.g., poll-based agents). -->
+OSS MLflow gained first-class Model Registry webhooks on the
+3.x line (events for registered-model / version / tag / alias
+changes), and they require the SQL backend — the file backend
+does not fire them. Managed services (Databricks and others)
+may expose a different webhook surface or none at all. If your
+deployment can't use built-in webhooks, fall back to the pull
+pattern above. Check the MLflow webhooks docs (`resources.md`)
+for the event list and supported versions.
 
 ## Governance features worth knowing
 
